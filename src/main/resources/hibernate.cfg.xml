@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+    <session-factory>
+<!--         <property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property> -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> 
+        
+        <property name="hibernate.search.autoregister_listeners">false</property>  
+
+        <!-- 2nd level cache -->
+		<property name="hibernate.cache.use_second_level_cache">false</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+ 		
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+		 		
+		<!-- Transaction isolation : None = 0 -->
+        <!-- Transaction isolation : Read Uncommitted = 1 -->
+        <!-- Transaction isolation : Read Committed = 2 -->
+        <!-- Transaction isolation : Repeatable read = 4 -->
+        <!-- Transaction isolation : Serializable = 8 -->
+        <property name="hibernate.connection.isolation">2</property>
+        
+        <mapping class="com.kayentis.kbb.beans.Article" />
+        <mapping class="com.kayentis.kbb.beans.Categorie" />
+        
+
+    </session-factory>
+</hibernate-configuration>
